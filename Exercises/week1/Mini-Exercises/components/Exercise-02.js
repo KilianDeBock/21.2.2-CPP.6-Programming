@@ -1,8 +1,9 @@
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import { useEffect, useState } from "react";
 
 export const Exercise02 = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+  const [time, setTime] = useState(1000);
 
   const array = [
     "So you are a developer, huh?",
@@ -10,24 +11,22 @@ export const Exercise02 = () => {
     "I mean, you are not like the rest of us, right?",
   ];
 
-  const add = () => {
-    const newIndex = currentIndex + 1 > array.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
+  const add = () => setIndex(index + 1 > array.length - 1 ? 0 : index + 1);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      add();
-    }, 2000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [currentIndex]);
+    const timeout = setTimeout(add, time);
+    return () => clearTimeout(timeout);
+  }, [index, time]);
 
   return (
     <View>
-      <Text>{array[currentIndex]}</Text>
+      <Button
+        title="-"
+        disabled={time === 0}
+        onPress={() => setTime(Math.max(0, time - 1000))}
+      />
+      <Text>{array[index]}</Text>
+      <Button title="+" onPress={() => setTime(time + 1000)} />
     </View>
   );
 };

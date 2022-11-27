@@ -1,26 +1,57 @@
 const Colors = {
-  primary: "#FF0000",
-  secondary: "#00FF00",
-  tertiary: "#0000FF",
-  black: "#000000",
-  white: "#FFFFFF",
-  gray: "#808080",
+  red: "#fc5c65",
+  blue: "#4ECDC4",
+  yellow: "#ffe66d",
+  black: "#000",
+  white: "#fff",
+  gray: "#8D8B88",
+  grayLight: "#E5E5E5",
+  background: "#EFEFF4",
+};
+
+const Fonts = {
+  default: "source-sans",
+  bold: "source-sans-bold",
 };
 
 export const Variables = {
   colors: {
     ...Colors,
-    text: Colors.primary,
-    error: Colors.gray,
+    text: Colors.black,
+    error: Colors.red,
+    lightText: Colors.gray,
+    headerText: Colors.white,
+    ripple: "rgba(0, 0, 0, 0.1)",
+    errorLight: Colors.red100,
   },
   textSizes: {
-    small: 12,
-    medium: 16,
+    xxxl: 29,
+    xxl: 26,
+    xl: 23,
     large: 20,
+    medium: 18,
+    default: 16,
+    small: 14.22,
   },
   sizes: {
-    medium: 18,
-    small: 16,
-    xs: 12,
+    xxxxl: 64,
+    xxxl: 52,
+    xxl: 32,
+    xl: 24,
+    large: 20,
+    medium: 16,
+    small: 12,
+    xs: 8,
+    xxs: 4,
+    horizontalPadding: 16,
+  },
+  fonts: { ...Fonts },
+};
+
+export const DefaultStyles = {
+  text: {
+    fontSize: Variables.textSizes.default,
+    fontFamily: Fonts.default,
+    color: Variables.colors.text,
   },
 };

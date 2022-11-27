@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import AppContainer from "./src/app/Components/Shared/App/AppContainer";
 import { Variables } from "./src/app/style";
-import { AccountScreen } from "./src/app/Screens/Account/AccountScreen";
+import { AddListingScreen } from "./src/app/Screens/Listing/AddListingScreen";
 
 export default function App() {
   return (
@@ -10,7 +10,8 @@ export default function App() {
       <View style={styles.container}>
         {/*<LoginScreen />*/}
         {/*<ListingScreen />*/}
-        <AccountScreen />
+        {/*<AccountScreen />*/}
+        <AddListingScreen />
         <StatusBar style="dark" />
       </View>
     </AppContainer>

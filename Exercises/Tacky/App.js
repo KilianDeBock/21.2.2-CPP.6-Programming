@@ -2,14 +2,15 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import AppContainer from "./src/app/Components/Shared/App/AppContainer";
 import { Variables } from "./src/app/style";
-import { ListingScreen } from "./src/app/Screens/Listing/ListingScreen";
+import { AccountScreen } from "./src/app/Screens/Account/AccountScreen";
 
 export default function App() {
   return (
     <AppContainer>
       <View style={styles.container}>
         {/*<LoginScreen />*/}
-        <ListingScreen />
+        {/*<ListingScreen />*/}
+        <AccountScreen />
         <StatusBar style="dark" />
       </View>
     </AppContainer>
@@ -18,7 +19,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: Variables.sizes.xxxl,
     flex: 1,
-    backgroundColor: Variables.colors.background,
+    backgroundColor: Variables.colors.grayLight,
   },
 });

@@ -2,16 +2,18 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import AppContainer from "./src/app/Components/Shared/App/AppContainer";
 import { Variables } from "./src/app/style";
-import { AddListingScreen } from "./src/app/Screens/Listing/AddListingScreen";
+import { LoginScreen } from "./src/app/Screens/Auth/LoginScreen";
+import { NetworkCheck } from "./src/app/Components/Shared/Network/NetworkCheck";
 
 export default function App() {
   return (
     <AppContainer>
       <View style={styles.container}>
-        {/*<LoginScreen />*/}
+        <NetworkCheck />
+        <LoginScreen />
         {/*<ListingScreen />*/}
         {/*<AccountScreen />*/}
-        <AddListingScreen />
+        {/*<AddListingScreen />*/}
         <StatusBar style="dark" />
       </View>
     </AppContainer>
@@ -20,7 +22,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Variables.sizes.xxxl,
+    paddingTop: Variables.sizes.xl,
     flex: 1,
     backgroundColor: Variables.colors.grayLight,
   },

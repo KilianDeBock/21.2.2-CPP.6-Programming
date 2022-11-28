@@ -1,34 +1,55 @@
-import { FlatList, Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import TextField from "../../Components/Design/Form/TextField";
+import React from "react";
+import { ImagePicker } from "../../Components/Shared/ImagePicker/ImagePicker";
 
 export const AddListingScreen = () => {
-  const data = [
-    require("../../../../assets/background.jpg"),
-    require("../../../../assets/chair.jpg"),
-    require("../../../../assets/couch.jpg"),
-  ];
+  const [formData, setFormData] = React.useState({
+    images: [],
+    title: "",
+    price: "",
+    category: "",
+    description: "",
+  });
 
-  data.push(require("../../../../assets/camera.jpeg"));
+  const updateData = (key, value) => {
+    setFormData({ ...formData, [key]: value });
+  };
 
   return (
     <View style={styles.container}>
-      <FlatList
-        style={styles.images}
-        data={data}
-        renderItem={({ item }) => <Image style={styles.image} source={item} />}
-        numColumns={4}
+      <ImagePicker
+        storeTo="images1"
+        onChange={(i) => updateData("images", i)}
+        value={formData.images}
       />
-      <TextField style={styles.input} name="Title" placeholder="Title" />
-      <TextField style={styles.input} name="Price" placeholder="Price" />
+      <TextField
+        style={styles.input}
+        name="Title"
+        placeholder="Title"
+        onChange={(t) => updateData("title", t)}
+        value={formData.title}
+      />
+      <TextField
+        style={styles.input}
+        name="Price"
+        placeholder="Price"
+        onChange={(p) => updateData("price", p)}
+        value={formData.price}
+      />
       <TextField
         style={[styles.input, styles.category]}
         name="Category"
         placeholder="Category"
+        onChange={(c) => updateData("category", c)}
+        value={formData.category}
       />
       <TextField
         style={styles.input}
         name="Description"
         placeholder="Description"
+        onChange={(d) => updateData("description", d)}
+        value={formData.description}
       />
     </View>
   );
@@ -37,15 +58,6 @@ export const AddListingScreen = () => {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
-  },
-  images: {
-    marginBottom: 20,
-  },
-  image: {
-    width: 70,
-    height: 70,
-    borderRadius: 15,
-    marginRight: 10,
   },
   input: {
     marginBottom: 20,

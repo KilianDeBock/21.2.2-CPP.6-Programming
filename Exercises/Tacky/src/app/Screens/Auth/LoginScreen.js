@@ -4,9 +4,13 @@ import Logo from "../../Components/Design/Logo/Logo";
 import Title from "../../Components/Design/Text/Title";
 import Button from "../../Components/Design/Button/Button";
 import { useAuth } from "../../Contexts/Auth.context";
+import TextField from "../../Components/Design/Form/TextField";
+import { useState } from "react";
 
 export const LoginScreen = () => {
   const auth = useAuth();
+
+  const [username, setUsername] = useState("");
 
   return (
     <View style={styles.container}>
@@ -20,17 +24,18 @@ export const LoginScreen = () => {
           <Title style={styles.title}>Sell what you dont need</Title>
         </View>
         <View>
+          <TextField onChangeText={setUsername} value={username} />
           <Button
             style={[styles.button, styles.buttonLogin]}
             color={styles.buttonLogin.backgroundColor}
-            onPress={() => auth?.setLoggedIn(true)}
+            onPress={() => auth?.login(username)}
           >
             Login
           </Button>
           <Button
             style={[styles.button, styles.buttonRegister]}
             color={styles.buttonRegister.backgroundColor}
-            onPress={() => auth?.setLoggedIn(true)}
+            onPress={() => auth?.login(username)}
           >
             Register
           </Button>

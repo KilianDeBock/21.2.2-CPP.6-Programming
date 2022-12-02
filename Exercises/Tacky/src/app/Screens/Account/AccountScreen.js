@@ -26,7 +26,7 @@ export const AccountScreen = () => {
       type: "side",
       title: "Log Out",
       image: require("../../../../assets/logout.png"),
-      onPress: () => auth?.setLoggedIn(false),
+      onPress: () => auth?.logout(),
     },
   ];
 

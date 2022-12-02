@@ -3,8 +3,11 @@ import { Variables } from "../../style";
 import Logo from "../../Components/Design/Logo/Logo";
 import Title from "../../Components/Design/Text/Title";
 import Button from "../../Components/Design/Button/Button";
+import { useAuth } from "../../Contexts/Auth.context";
 
 export const LoginScreen = () => {
+  const auth = useAuth();
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -20,12 +23,14 @@ export const LoginScreen = () => {
           <Button
             style={[styles.button, styles.buttonLogin]}
             color={styles.buttonLogin.backgroundColor}
+            onPress={() => auth?.setLoggedIn(true)}
           >
             Login
           </Button>
           <Button
             style={[styles.button, styles.buttonRegister]}
             color={styles.buttonRegister.backgroundColor}
+            onPress={() => auth?.setLoggedIn(false)}
           >
             Register
           </Button>

@@ -17,8 +17,16 @@ export const LoginScreen = () => {
           <Title style={styles.title}>Sell what you dont need</Title>
         </View>
         <View>
-          <Button style={[styles.button, styles.buttonLogin]}>Login</Button>
-          <Button style={[styles.button, styles.buttonRegister]}>
+          <Button
+            style={[styles.button, styles.buttonLogin]}
+            color={styles.buttonLogin.backgroundColor}
+          >
+            Login
+          </Button>
+          <Button
+            style={[styles.button, styles.buttonRegister]}
+            color={styles.buttonRegister.backgroundColor}
+          >
             Register
           </Button>
         </View>

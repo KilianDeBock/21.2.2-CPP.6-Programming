@@ -4,14 +4,10 @@ import Icons from "@expo/vector-icons/MaterialCommunityIcons";
 import { DefaultNavigatorOptions, Variables } from "../style";
 import ListingNavigator from "./ListingNavigator";
 import { AccountScreen } from "../Screens/Account/AccountScreen";
-import { LoginScreen } from "../Screens/Auth/LoginScreen";
 
 const getTabIcon = (name, focused) => {
   let icon = "";
   switch (name) {
-    case Navigation.AUTH:
-      icon = "menu-down";
-      break;
     case Navigation.LISTINGS:
       icon = "playlist-music";
       break;
@@ -43,7 +39,6 @@ const AppNavigator = () => {
         ...DefaultNavigatorOptions.screenOptions,
       })}
     >
-      <Tab.Screen name={Navigation.AUTH} component={LoginScreen} />
       <Tab.Screen
         name={Navigation.LISTINGS}
         component={ListingNavigator}

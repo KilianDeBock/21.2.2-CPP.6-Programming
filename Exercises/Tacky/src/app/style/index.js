@@ -7,6 +7,9 @@ const Colors = {
   gray: "#8D8B88",
   grayLight: "#E5E5E5",
   background: "#EFEFF4",
+  primary: "#4ECDC4",
+  secondary: "#ffe66d",
+  tertiary: "#fc5c65",
 };
 
 const Fonts = {
@@ -53,5 +56,18 @@ export const DefaultStyles = {
     fontSize: Variables.textSizes.default,
     fontFamily: Fonts.default,
     color: Variables.colors.text,
+  },
+};
+
+export const DefaultNavigatorOptions = {
+  screenOptions: {
+    headerTintColor: Variables.colors.headerText,
+    headerTitleStyle: {
+      fontFamily: Fonts.bold,
+    },
+    tabBarLabelStyle: {
+      fontFamily: Fonts.bold,
+      fontSize: Variables.textSizes.small,
+    },
   },
 };

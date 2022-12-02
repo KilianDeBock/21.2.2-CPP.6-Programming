@@ -30,7 +30,7 @@ export const LoginScreen = () => {
           <Button
             style={[styles.button, styles.buttonRegister]}
             color={styles.buttonRegister.backgroundColor}
-            onPress={() => auth?.setLoggedIn(false)}
+            onPress={() => auth?.setLoggedIn(true)}
           >
             Register
           </Button>

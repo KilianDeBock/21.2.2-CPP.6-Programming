@@ -1,16 +1,22 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import Text from "../Text/Text";
 import { Variables } from "../../../style";
 
-export const ListItem = ({ type, title, image, subtitle }) => {
+export const ListItem = ({
+  type,
+  title,
+  image,
+  subtitle,
+  onPress = () => {},
+}) => {
   return (
-    <View style={[styles.container, styles[type]]}>
+    <Pressable style={[styles.container, styles[type]]} onPress={onPress}>
       <Image style={styles.image} source={image} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
         {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
       </View>
-    </View>
+    </Pressable>
   );
 };
 

@@ -1,7 +1,10 @@
 import { FlatList, View } from "react-native";
 import { ListItem } from "../../Components/Design/ListItem/ListItem";
+import { useAuth } from "../../Contexts/Auth.context";
 
 export const AccountScreen = () => {
+  const auth = useAuth();
+
   const data = [
     {
       type: "main",
@@ -23,6 +26,7 @@ export const AccountScreen = () => {
       type: "side",
       title: "Log Out",
       image: require("../../../../assets/logout.png"),
+      onPress: () => auth?.setLoggedIn(false),
     },
   ];
 

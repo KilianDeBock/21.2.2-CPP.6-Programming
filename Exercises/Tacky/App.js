@@ -1,3 +1,4 @@
+import "react-native-url-polyfill/auto";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import AppContainer from "./src/app/Components/Shared/App/AppContainer";
@@ -6,6 +7,7 @@ import { Variables } from "./src/app/style";
 import { NetworkCheck } from "./src/app/Components/Shared/Network/NetworkCheck";
 import { AuthProvider } from "./src/app/Contexts/Auth.context";
 import { AuthNavigator } from "./src/app/Navigators/AuthNavigator";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const AppTheme = {
   ...DefaultTheme,
@@ -19,19 +21,23 @@ const AppTheme = {
   },
 };
 
+const queryClient = new QueryClient();
+
 export default function App() {
   return (
-    <AuthProvider>
-      <AppContainer>
-        <View style={styles.container}>
-          <NetworkCheck />
-          <NavigationContainer theme={AppTheme}>
-            <AuthNavigator />
-            <StatusBar style="dark" />
-          </NavigationContainer>
-        </View>
-      </AppContainer>
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <AppContainer>
+          <View style={styles.container}>
+            <NetworkCheck />
+            <NavigationContainer theme={AppTheme}>
+              <AuthNavigator />
+              <StatusBar style="dark" />
+            </NavigationContainer>
+          </View>
+        </AppContainer>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }
 
